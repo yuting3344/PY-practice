@@ -1,0 +1,27 @@
+# --------------------------------> beautifulsoup
+
+from requests import get
+from bs4 import BeautifulSoup
+
+url = "https://www.tenlong.com.tw/zh_tw/recent_bestselling?range=7"
+result = get(url)
+
+print(result)  # status_code 為 http 狀態碼
+soup = BeautifulSoup(
+    result.text, "html.parser"
+)  # 從 bs4 套件中導入 BeautifulSoup 類別，用於解析 HTML 文檔
+
+books = soup.select(".single-book .title a")
+for book in books:
+    print("title:", book.text)
+
+# -------------------------------> placeholder
+
+from requests import get
+
+result = get("https://jsonplaceholder.typicode.com/users")
+
+for user in result.json():
+    print(user["name"])
+
+# ------------------------------->
