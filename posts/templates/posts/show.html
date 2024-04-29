@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <h1>貼文列表</h1>
+    <p>{{ post.title }}</p>
+    <p>{{ post.number }}</p>
+    <p>{{ post.note }}</p>
+
+    <a href="{% url 'postes:edit' post.id %}">Edit</a>
+    <form action="{% url 'postes:delete' post.id %}" method="post">
+        {% csrf_token %}
+        <button>Delete</button>
+    </form>
+{% endblock %}

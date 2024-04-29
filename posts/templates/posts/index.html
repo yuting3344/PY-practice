@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>部落格首頁</h1>
+<a href="{% url 'postes:new' %}">新增</a>
+{% for post in posts %}
+<div>
+    <a href="{% url 'postes:show' post.id %}">{{ post.title }}</a>
+</div>
+{% endfor %}
+{% endblock %}
