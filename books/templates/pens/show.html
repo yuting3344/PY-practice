@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>Pen List</h1>
+<h1>{{ pen.number }}</h1>
+<h1>{{ pen.length }}</h1>
+<h1>{{ pen.description }}</h1>
+<a href="{% url 'pens:edit' pen.id %}">編輯</a>
+<form action="{% url 'pens:delete' pen.id %}" method="post">
+    {% csrf_token %}
+    <button>delete</button>
+</form>
+{% endblock %}
+

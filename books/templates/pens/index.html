@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% comment %}  
+# form 不寫 get or post 代表預設 get(我這頁)
+{% endcomment %}
+<form>   
+    <input type="search" name="keyword">
+    <button>搜尋</button>
+</form>
+<h1>首頁</h1>
+<a href="{% url 'pens:new' %}">新增</a>
+
+{% for pen in pens %}
+    <a href="{% url 'pens:show' pen.id %}">{{ pen.number }}</a>
+{% endfor %}
+{% endblock %}

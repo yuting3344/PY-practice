@@ -1,0 +1,9 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>編輯頁面</h1>
+<form action="{% url 'pens:show' pen.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit"value="編輯">
+</form>
+{% endblock %}

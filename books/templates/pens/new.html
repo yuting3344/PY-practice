@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h1>新增pens</h1>
+<form action="{% url 'pens:add' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    
+    <input type="submit"value="新增">
+</form>
+{% endblock %}
